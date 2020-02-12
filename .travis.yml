@@ -15,7 +15,7 @@ after_success:
     - docker build -t mhnm02/multi-server ./server
     - docker build -t mhnm02/multi-worker ./worker
     # Log into docker CLI; first create env variables DOCKER_ID, DOCKER_PASSWORD in travis UI
-    - echo "$DOCKER_PASSWORD" | docker -u "$DOCKER_ID" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # take above images and push them to docker hub
     - docker push mhnm02/multi-client
     - docker push mhnm02/multi-nginx

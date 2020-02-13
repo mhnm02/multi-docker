@@ -21,3 +21,10 @@ after_success:
     - docker push mhnm02/multi-nginx
     - docker push mhnm02/multi-server
     - docker push mhnm02/multi-worker
+
+deploy:
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstalk-us-east-1-233583635090
